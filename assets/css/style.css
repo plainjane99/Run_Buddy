@@ -335,10 +335,70 @@ section {
     background: var(--secondary-color);
     color: var(--primary-color);
     flex: 1;
+    overflow: hidden;
 }
 
-.trainer img {
+.trainer-img {
     width: 100%;
+    min-height: 300px;
+    padding: 15px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.trainer-img::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(252, 225, 56, 0.3), rgba(2, 78, 118));
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.trainer:hover .trainer-img::after{
+    opacity: 1;
+    transition-duration: 0.5s;
+}
+
+.trainer-img h3 {
+    position: relative;
+    font-size: 28px;
+    margin-bottom: 5px;
+    top: 300px;
+    transition: 0.6s;
+    z-index: 9000;
+}
+
+.trainer-img h4 {
+    position: relative;
+    font-size: 22px;
+    top: 300px;
+    transition: 0.9s;
+    z-index: 9000;
+}
+
+.trainer:hover .trainer-img h3, .trainer:hover .trainer-img h4 {
+    top: 0px;
+}
+
+.trainer-1 {
+    background-image: url("../images/trainer-1.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+.trainer-2 {
+    background-image: url("../images/trainer-2.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+.trainer-3 {
+    background-image: url("../images/trainer-3.jpg");
+    background-size: cover;
+    position: relative;
 }
 
 .trainer-bio {
@@ -348,24 +408,18 @@ section {
 
 .trainer-bio h3 {
     font-size: 28px;
+    display: none;
 }
 
 .trainer-bio h4 {
     font-weight: lighter;
     font-size: 22px;
     margin-bottom: 15px;
+    display: none;
 }
 
 .trainer-bio p {
     font-size: 17px;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
 }
 
 /* Service Grid Start */
@@ -622,6 +676,18 @@ footer a {
         flex: 100%;
     }
 
+    .trainer-img {
+        min-height: 500px;
+    }
+
+    .trainer-img h3, .trainer-img h4, .trainer-img::after {
+        display: none;
+    }
+
+    .trainer-bio h3, .trainer-bio h4 {
+        display: block;
+    }
+    
     .service-grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
